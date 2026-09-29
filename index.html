@@ -1,0 +1,1313 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Para Imanol ❤️</title>
+
+    <link rel="stylesheet" href="style.css">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@400;500;600&family=DM+Sans:wght@400;500;600&family=Playfair+Display:ital,wght@0,500;1,500&display=swap" rel="stylesheet">
+</head>
+
+<body>
+
+<div id="particles"></div>
+
+<!-- =========================
+     1. ENTRADA
+========================= -->
+
+<section class="screen intro-screen" id="intro">
+
+    <div class="tiny-top">PRIVATE MESSAGE · 01</div>
+
+    <div class="lock">♡</div>
+
+    <h1>IMANOL</h1>
+
+    <p class="intro-sub">
+        tienes algo pendiente de abrir.
+    </p>
+
+    <div class="message-preview">
+        <span>Kate</span>
+        <p>te preparé algo...</p>
+    </div>
+
+    <button class="main-button" onclick="goTo('question')">
+        abrir
+    </button>
+
+</section>
+
+
+<!-- =========================
+     2. PREGUNTA
+========================= -->
+
+<section class="screen hidden-screen" id="question">
+
+    <div class="tiny-top">PRIVATE MESSAGE · 02</div>
+
+    <div class="question-card">
+
+        <span class="small-heart">♡</span>
+
+        <h2>
+            Antes de continuar...
+        </h2>
+
+        <p>
+            tengo una pregunta.
+        </p>
+
+        <h3>
+            ¿Estás preparado?
+        </h3>
+
+        <div class="two-buttons">
+
+            <button onclick="readyYes()">
+                SÍ ❤️
+            </button>
+
+            <button onclick="readyNo()">
+                NO
+            </button>
+
+        </div>
+
+        <p class="reaction" id="questionReaction"></p>
+
+    </div>
+
+</section>
+
+
+<!-- =========================
+     3. CAJAS
+========================= -->
+
+<section class="section hidden-screen" id="boxes">
+
+    <div class="section-heading">
+
+        <span>03 · DESCUBRE</span>
+
+        <h2>
+            Hay tres cosas<br>
+            escondidas aquí.
+        </h2>
+
+        <p>
+            Una te hará recordar.<br>
+            Otra te hará sonreír.<br>
+            Y la última...
+        </p>
+
+        <strong>
+            tendrás que volver por ella.
+        </strong>
+
+    </div>
+
+    <div class="boxes">
+
+        <button class="gift-box" onclick="openBox(1)">
+            <span>01</span>
+            <b>🎁</b>
+            <small>abre</small>
+        </button>
+
+        <button class="gift-box" onclick="openBox(2)">
+            <span>02</span>
+            <b>🎁</b>
+            <small>abre</small>
+        </button>
+
+        <button class="gift-box locked-box" onclick="openBox(3)">
+            <span>03</span>
+            <b>🔒</b>
+            <small>¿?</small>
+        </button>
+
+    </div>
+
+    <div class="box-result" id="boxResult"></div>
+
+    <button class="continue-button hidden" id="boxContinue" onclick="goTo('words')">
+        todavía hay más →
+    </button>
+
+</section>
+
+
+<!-- =========================
+     4. PALABRAS
+========================= -->
+
+<section class="section hidden-screen" id="words">
+
+    <div class="section-heading">
+
+        <span>04 · UNA PEQUEÑA PRUEBA</span>
+
+        <h2>
+            Toca las palabras
+            que tengan algo que ver contigo.
+        </h2>
+
+    </div>
+
+    <div class="word-cloud">
+
+        <button onclick="wordClicked(this, 'atento')">ATENTO</button>
+        <button onclick="wordClicked(this, 'cariñoso')">CARIÑOSO</button>
+        <button onclick="wordClicked(this, 'momentos')">MOMENTOS</button>
+        <button onclick="wordClicked(this, 'nosotros')">NOSOTROS</button>
+        <button onclick="wordClicked(this, 'amor')">AMOR</button>
+        <button onclick="wordClicked(this, 'tu')">TÚ</button>
+
+    </div>
+
+    <div class="word-answer" id="wordAnswer">
+        <span>0 / 6</span>
+        <p>todavía no has encontrado nada...</p>
+    </div>
+
+    <button class="continue-button hidden" id="wordsContinue" onclick="goTo('photos')">
+        seguir →
+    </button>
+
+</section>
+
+
+<!-- =========================
+     5. FOTOS
+========================= -->
+
+<section class="section hidden-screen" id="photos">
+
+    <div class="section-heading">
+
+        <span>05 · NUESTROS MOMENTOS</span>
+
+        <h2>
+            No puedo elegir
+            un solo momento.
+        </h2>
+
+        <p>
+            Así que hice esto.
+        </p>
+
+    </div>
+
+    <div class="photo-table">
+
+        <div class="photo-item p1" onclick="showPhoto(this)">
+            <img src="foto1.jpeg.jpeg">
+            <span>♡</span>
+        </div>
+
+        <div class="photo-item p2" onclick="showPhoto(this)">
+            <img src="foto2.jpeg.jpeg">
+            <span>♡</span>
+        </div>
+
+        <div class="photo-item p3" onclick="showPhoto(this)">
+            <img src="foto3.jpeg.jpeg">
+            <span>♡</span>
+        </div>
+
+        <div class="photo-item p4" onclick="showPhoto(this)">
+            <img src="foto4.jpeg.jpeg">
+            <span>♡</span>
+        </div>
+
+        <div class="photo-item p5" onclick="showPhoto(this)">
+            <img src="foto5.jpeg.jpeg">
+            <span>♡</span>
+        </div>
+
+    </div>
+
+    <div class="photo-text" id="photoText">
+        toca una foto...
+    </div>
+
+    <button class="continue-button" onclick="goTo('forbidden')">
+        continuar →
+    </button>
+
+</section>
+
+
+<!-- =========================
+     6. NO ABRIR
+========================= -->
+
+<section class="screen hidden-screen" id="forbidden">
+
+    <div class="warning-box">
+
+        <span class="warning-symbol">⚠</span>
+
+        <h2>
+            NO ABRIR
+        </h2>
+
+        <p>
+            Te lo digo en serio.
+        </p>
+
+        <button class="main-button" onclick="openForbidden()">
+            abrir
+        </button>
+
+        <div id="forbiddenResult"></div>
+
+    </div>
+
+</section>
+
+
+<!-- =========================
+     7. CHAT
+========================= -->
+
+<section class="section hidden-screen" id="chat">
+
+    <div class="section-heading">
+
+        <span>07 · UNA CONVERSACIÓN</span>
+
+        <h2>
+            Esta pregunta<br>
+            ya me la sé...
+        </h2>
+
+    </div>
+
+    <div class="chat-window" id="chatWindow">
+
+        <div class="chat-message him">
+            <span>Imanol</span>
+            <p>¿Por qué me amas?</p>
+        </div>
+
+        <div class="chat-message her hidden-chat">
+            <span>Kate</span>
+            <p>¿Otra vez? 😭</p>
+        </div>
+
+        <div class="chat-message him hidden-chat">
+            <span>Imanol</span>
+            <p>Sí.</p>
+        </div>
+
+        <div class="chat-message her hidden-chat">
+            <span>Kate</span>
+            <p>Bueno...</p>
+        </div>
+
+        <div class="chat-message her hidden-chat">
+            <span>Kate</span>
+            <p>Esta vez te voy a responder bien.</p>
+        </div>
+
+    </div>
+
+    <button class="main-button" onclick="startLoveQuestion()">
+        quiero saberlo ❤️
+    </button>
+
+</section>
+
+
+<!-- =========================
+     8. POR QUÉ TE AMO
+========================= -->
+
+<section class="section hidden-screen love-section" id="love">
+
+    <div class="section-heading">
+
+        <span>08 · LA PREGUNTA</span>
+
+        <h2>
+            ¿Quieres la respuesta
+            corta o la verdadera?
+        </h2>
+
+    </div>
+
+    <div class="choice-buttons">
+
+        <button onclick="shortAnswer()">
+            la corta
+        </button>
+
+        <button onclick="realAnswer()">
+            la verdadera
+        </button>
+
+    </div>
+
+    <div class="love-result" id="loveResult"></div>
+
+</section>
+
+
+<!-- =========================
+     9. RESPUESTA LARGA
+========================= -->
+
+<section class="section hidden-screen" id="realLove">
+
+    <div class="love-reading">
+
+        <span>09 · LA RESPUESTA REAL</span>
+
+        <div class="love-text" id="loveText"></div>
+
+        <button class="continue-button hidden" id="loveNext" onclick="nextLoveText()">
+            seguir →
+        </button>
+
+    </div>
+
+</section>
+
+
+<!-- =========================
+     10. ELECCIÓN
+========================= -->
+
+<section class="screen hidden-screen" id="answer">
+
+    <div class="answer-card">
+
+        <span>10 · UNA ÚLTIMA ELECCIÓN</span>
+
+        <h2>
+            Entonces...
+            ¿cuál es la verdadera respuesta?
+        </h2>
+
+        <div class="answer-options">
+
+            <button onclick="answerChosen()">
+                A<br>
+                <small>porque eres atento</small>
+            </button>
+
+            <button onclick="answerChosen()">
+                B<br>
+                <small>porque eres cariñoso</small>
+            </button>
+
+            <button onclick="answerChosen()">
+                C<br>
+                <small>porque eres tú</small>
+            </button>
+
+        </div>
+
+        <div id="answerResult"></div>
+
+    </div>
+
+</section>
+
+
+<!-- =========================
+     11. HUMOR
+========================= -->
+
+<section class="screen hidden-screen" id="again">
+
+    <div class="again-card">
+
+        <span>11 · POR CIERTO...</span>
+
+        <h2>
+            Sé que vas a volver
+            a preguntármelo.
+        </h2>
+
+        <p>
+            Y probablemente algún día
+            voy a volver a decirte:
+        </p>
+
+        <div class="quote">
+            “No sé cómo explicártelo.”
+        </div>
+
+        <p>
+            Pero ahora tienes esta página.
+        </p>
+
+        <p>
+            Así que si vuelves a preguntarme
+            por qué te amo...
+        </p>
+
+        <h3>
+            vas a tener que leerla entera otra vez. 😂❤️
+        </h3>
+
+        <button class="main-button" onclick="unlockFinal()">
+            aceptar →
+        </button>
+
+    </div>
+
+</section>
+
+
+<!-- =========================
+     12. CARTA
+========================= -->
+
+<section class="screen hidden-screen" id="letter">
+
+    <div class="letter-container">
+
+        <span>12 · ÚLTIMA COSA</span>
+
+        <h2>
+            Ahora sí.
+        </h2>
+
+        <p>
+            Hay algo que quería dejarte aquí.
+        </p>
+
+        <div class="envelope" onclick="openLetter()">
+
+            <div class="envelope-paper">
+
+                <div class="letter-content">
+
+                    <h3>Imanol,</h3>
+
+                    <p>
+                        hice todo esto porque quería darte
+                        algo que pudieras guardar.
+                    </p>
+
+                    <p>
+                        Algo que no fuera simplemente una foto,
+                        un mensaje o un regalo que se abre
+                        una vez y después queda olvidado.
+                    </p>
+
+                    <p>
+                        Quería que tuvieras un pequeño lugar
+                        al que pudiéramos volver.
+                    </p>
+
+                    <p>
+                        Un lugar con algunos de nuestros momentos,
+                        con cosas que me gustan de ti
+                        y con todo eso que quizá no siempre te digo.
+                    </p>
+
+                    <p>
+                        Y sobre todo quería responderte,
+                        aunque sea una vez,
+                        esa pregunta que siempre me haces.
+                    </p>
+
+                    <p class="question-inside">
+                        ¿Por qué te amo?
+                    </p>
+
+                    <p>
+                        Porque eres tú.
+                    </p>
+
+                    <p>
+                        Porque me gusta estar a tu lado.
+                    </p>
+
+                    <p>
+                        Porque eres atento conmigo.
+                    </p>
+
+                    <p>
+                        Porque eres demasiado cariñoso.
+                    </p>
+
+                    <p>
+                        Porque hemos creado momentos
+                        que quiero guardar.
+                    </p>
+
+                    <p>
+                        Y porque, entre todas las respuestas
+                        que podría darte, hay una que sigue
+                        siendo la más sencilla:
+                    </p>
+
+                    <h4>
+                        te amo.
+                    </h4>
+
+                    <p class="signature">
+                        — Kate ❤️
+                    </p>
+
+                </div>
+
+            </div>
+
+            <div class="envelope-front">
+                <span>♡</span>
+            </div>
+
+        </div>
+
+        <p class="tap">
+            toca el sobre
+        </p>
+
+        <button class="main-button final-button" onclick="goTo('final')">
+            terminar →
+        </button>
+
+    </div>
+
+</section>
+
+
+<!-- =========================
+     13. FINAL
+========================= -->
+
+<section class="screen hidden-screen final-screen" id="final">
+
+    <div class="final-content">
+
+        <div class="sunflower">🌻</div>
+
+        <p>
+            Imanol
+        </p>
+
+        <h1>
+            te amo.
+        </h1>
+
+        <div class="final-line"></div>
+
+        <p>
+            muchísimo más de lo que cabe aquí.
+        </p>
+
+        <span class="final-signature">
+            — Kate
+        </span>
+
+    </div>
+
+</section>
+
+
+<!-- =========================
+     MODAL FOTOS
+========================= -->
+
+<div class="photo-modal" id="photoModal" onclick="closePhoto()">
+
+    <button>×</button>
+
+    <img id="modalImage">
+
+</div>
+
+
+<script>
+
+/* =========================
+   NAVEGACIÓN
+========================= */
+
+function goTo(id){
+
+    document.querySelectorAll(".screen, .section")
+        .forEach(section => {
+            section.classList.remove("active-screen");
+        });
+
+    const target = document.getElementById(id);
+
+    target.classList.add("active-screen");
+
+    setTimeout(() => {
+        target.scrollIntoView({
+            behavior:"smooth",
+            block:"start"
+        });
+    },100);
+
+}
+
+
+/* =========================
+   PREGUNTA
+========================= */
+
+function readyYes(){
+
+    document.getElementById("questionReaction")
+        .innerHTML =
+        "Sabía que dirías que sí. ❤️";
+
+    setTimeout(() => {
+        goTo("boxes");
+    },1200);
+
+}
+
+function readyNo(){
+
+    document.getElementById("questionReaction")
+        .innerHTML =
+        "Demasiado tarde 😭 ya estás aquí.";
+
+}
+
+
+/* =========================
+   CAJAS
+========================= */
+
+let openedBoxes = [];
+
+function openBox(number){
+
+    const result =
+        document.getElementById("boxResult");
+
+    if(number === 1){
+
+        result.innerHTML = `
+            <div class="result-card">
+                <span>♡</span>
+                <h3>Un recuerdo.</h3>
+                <p>
+                    No porque sea el momento más importante,
+                    sino porque es uno de esos momentos
+                    que me gusta tener guardados.
+                </p>
+            </div>
+        `;
+
+    }
+
+    if(number === 2){
+
+        result.innerHTML = `
+            <div class="result-card">
+                <span>✦</span>
+                <h3>Algo que quizá no te digo suficiente.</h3>
+                <p>
+                    Me encanta lo atento que eres conmigo.
+                    Y me encanta que seas demasiado
+                    cariñoso conmigo.
+                </p>
+                <p>
+                    Sí, demasiado.
+                    Pero no voy a quejarme. 🤭
+                </p>
+            </div>
+        `;
+
+    }
+
+    if(number === 3){
+
+        result.innerHTML = `
+            <div class="result-card secret">
+                <span>🔓</span>
+                <h3>Esta todavía no.</h3>
+                <p>
+                    Vas a tener que seguir descubriendo
+                    cosas para saber qué había aquí.
+                </p>
+            </div>
+        `;
+
+        openedBoxes.push(3);
+
+    }
+
+    openedBoxes.push(number);
+
+    if(
+        openedBoxes.includes(1) &&
+        openedBoxes.includes(2)
+    ){
+
+        document
+            .getElementById("boxContinue")
+            .classList.remove("hidden");
+
+    }
+
+}
+
+
+/* =========================
+   PALABRAS
+========================= */
+
+let selectedWords = new Set();
+
+function wordClicked(button, word){
+
+    if(selectedWords.has(word)){
+        return;
+    }
+
+    selectedWords.add(word);
+
+    button.classList.add("selected");
+
+    const counter =
+        document.querySelector(".word-answer span");
+
+    counter.textContent =
+        selectedWords.size + " / 6";
+
+    const messages = {
+
+        atento:
+        "Porque eres muy atento conmigo.",
+
+        cariñoso:
+        "Porque eres demasiado cariñoso conmigo.",
+
+        momentos:
+        "Porque han sido muchos momentos contigo.",
+
+        nosotros:
+        "Porque me gusta lo que somos juntos.",
+
+        amor:
+        "Porque sí... amor también.",
+
+        tu:
+        "Y al final siempre terminamos en ti."
+
+    };
+
+    document.querySelector(".word-answer p")
+        .textContent = messages[word];
+
+    if(selectedWords.size === 6){
+
+        document
+            .getElementById("wordsContinue")
+            .classList.remove("hidden");
+
+        document.querySelector(".word-answer p")
+            .textContent =
+            "Parece que encontraste todas las respuestas... aunque falta una.";
+    }
+
+}
+
+
+/* =========================
+   FOTOS
+========================= */
+
+const photoMessages = [
+
+    "Uno de tantos momentos que quiero guardar. ♡",
+
+    "A veces no hace falta hacer nada especial.",
+
+    "Me gusta recordar esto porque estabas tú.",
+
+    "Otro pequeño pedacito de nosotros.",
+
+    "Y este también se queda conmigo. ❤️"
+
+];
+
+function showPhoto(element){
+
+    const image =
+        element.querySelector("img");
+
+    const index =
+        [...document.querySelectorAll(".photo-item")]
+        .indexOf(element);
+
+    document.getElementById("modalImage")
+        .src = image.src;
+
+    document.getElementById("photoText")
+        .textContent = photoMessages[index];
+
+    document.getElementById("photoModal")
+        .classList.add("show");
+
+}
+
+function closePhoto(){
+
+    document.getElementById("photoModal")
+        .classList.remove("show");
+
+}
+
+
+/* =========================
+   NO ABRIR
+========================= */
+
+function openForbidden(){
+
+    document.getElementById("forbiddenResult")
+        .innerHTML = `
+
+        <div class="forbidden-message">
+
+            <h3>
+                JAJAJA sabía que lo ibas a abrir.
+            </h3>
+
+            <p>
+                No podías dejarlo ahí, ¿verdad? 👀
+            </p>
+
+            <button
+                class="small-button"
+                onclick="goTo('chat')">
+                ya que estás aquí... →
+            </button>
+
+        </div>
+    `;
+
+}
+
+
+/* =========================
+   CHAT
+========================= */
+
+function startLoveQuestion(){
+
+    document.querySelectorAll(".hidden-chat")
+        .forEach((message,index) => {
+
+            setTimeout(() => {
+
+                message.classList.remove("hidden-chat");
+
+            }, index * 600);
+
+        });
+
+    setTimeout(() => {
+
+        goTo("love");
+
+    },3200);
+
+}
+
+
+/* =========================
+   POR QUÉ TE AMO
+========================= */
+
+function shortAnswer(){
+
+    document.getElementById("loveResult")
+        .innerHTML = `
+
+        <div class="short-love">
+
+            <span>♡</span>
+
+            <h3>
+                Porque eres tú.
+            </h3>
+
+            <p>
+                Aunque sé perfectamente que
+                no te vas a conformar con esa respuesta...
+            </p>
+
+            <button
+                class="small-button"
+                onclick="realAnswer()">
+                quiero la verdadera →
+            </button>
+
+        </div>
+    `;
+
+}
+
+function realAnswer(){
+
+    goTo("realLove");
+
+    loveIndex = 0;
+
+    setTimeout(() => {
+
+        showLoveText();
+
+    },500);
+
+}
+
+
+/* =========================
+   TEXTO AMOR
+========================= */
+
+const lovePages = [
+
+    `
+        <p>
+        Creo que lo primero que tendría que decirte
+        es que no fue una sola cosa.
+        </p>
+
+        <p>
+        No hubo un momento exacto en el que pensé:
+        </p>
+
+        <h3>
+        “Ah, esta es la razón por la que lo amo.”
+        </h3>
+
+        <p>
+        Simplemente fueron pasando cosas.
+        </p>
+
+        <p>
+        Conversaciones que quería seguir teniendo.
+        Momentos en los que quería que el tiempo
+        pasara un poquito más lento.
+        </p>
+
+        <p>
+        Días en los que estar contigo era
+        exactamente lo que quería hacer.
+        </p>
+    `,
+
+    `
+        <p>
+        Y poco a poco, sin darme cuenta,
+        empezaste a ocupar un lugar demasiado
+        importante en mi vida.
+        </p>
+
+        <p>
+        Te amo porque eres muy atento conmigo.
+        </p>
+
+        <p>
+        Porque te fijas en cosas que quizá para ti
+        son pequeñas, pero que yo sí noto.
+        </p>
+
+        <p>
+        Te amo porque eres demasiado cariñoso
+        conmigo y porque me gusta recibir
+        ese cariño de ti.
+        </p>
+    `,
+
+    `
+        <p>
+        Me gusta sentir que puedo estar contigo
+        y simplemente ser yo.
+        </p>
+
+        <p>
+        Y me gusta esa sensación de saber que hay
+        alguien a quien quiero contarle cosas,
+        hacer planes, reírme y simplemente
+        pasar tiempo.
+        </p>
+
+        <p>
+        Pero tampoco es justo decir que te amo
+        solamente por las cosas bonitas que haces.
+        </p>
+    `,
+
+    `
+        <p>
+        Te amo por quién eres.
+        </p>
+
+        <p>
+        Por tu forma de ser conmigo.
+        </p>
+
+        <p>
+        Por cómo hemos ido creando nuestros
+        propios momentos.
+        </p>
+
+        <p>
+        Por todas esas veces en las que no estábamos
+        haciendo absolutamente nada increíble y,
+        aun así, yo estaba feliz simplemente
+        porque estabas tú.
+        </p>
+    `,
+
+    `
+        <p>
+        Hay cosas que sí puedo explicar.
+        </p>
+
+        <div class="reasons">
+            <span>eres atento.</span>
+            <span>eres cariñoso.</span>
+            <span>me gusta estar contigo.</span>
+            <span>me encantan nuestros momentos.</span>
+            <span>me gusta cómo me haces sentir.</span>
+        </div>
+
+        <p>
+        Pero puedo escribir cien razones y todavía
+        sentir que me falta algo.
+        </p>
+    `,
+
+    `
+        <p>
+        Porque creo que amar a alguien no siempre
+        funciona como una lista de razones.
+        </p>
+
+        <p>
+        A veces simplemente sucede.
+        </p>
+
+        <h3 class="special-love">
+        Y contigo me pasó eso.
+        </h3>
+
+        <p>
+        Te elegí entre tantos momentos.
+        Y ahora, cuando pienso en los momentos
+        que quiero seguir viviendo,
+        muchas veces apareces tú.
+        </p>
+    `
+
+];
+
+let loveIndex = 0;
+
+function showLoveText(){
+
+    document.getElementById("loveText")
+        .innerHTML = lovePages[loveIndex];
+
+    const next =
+        document.getElementById("loveNext");
+
+    if(loveIndex === lovePages.length - 1){
+
+        next.textContent = "entonces... →";
+
+        next.onclick = () => {
+            goTo("answer");
+        };
+
+    }else{
+
+        next.textContent = "seguir →";
+
+    }
+
+    next.classList.remove("hidden");
+
+}
+
+function nextLoveText(){
+
+    if(loveIndex < lovePages.length - 1){
+
+        loveIndex++;
+
+        showLoveText();
+
+    }else{
+
+        goTo("answer");
+
+    }
+
+}
+
+
+/* =========================
+   RESPUESTA FINAL
+========================= */
+
+function answerChosen(){
+
+    document.getElementById("answerResult")
+        .innerHTML = `
+
+        <div class="answer-final">
+
+            <p>
+                Sí.
+            </p>
+
+            <p>
+                Todas esas cosas forman parte
+                de la respuesta.
+            </p>
+
+            <p>
+                Pero ninguna explica todo.
+            </p>
+
+            <h3>
+                Porque la verdad es que...
+            </h3>
+
+            <strong>
+                te amo por ser tú.
+            </strong>
+
+            <button
+                class="small-button"
+                onclick="goTo('again')">
+                continuar ❤️
+            </button>
+
+        </div>
+    `;
+
+}
+
+
+/* =========================
+   FINAL
+========================= */
+
+function unlockFinal(){
+
+    goTo("letter");
+
+}
+
+
+/* =========================
+   SOBRE
+========================= */
+
+function openLetter(){
+
+    document
+        .querySelector(".envelope")
+        .classList.toggle("open");
+
+}
+
+
+/* =========================
+   PARTICULAS
+========================= */
+
+function createParticle(){
+
+    const particle =
+        document.createElement("span");
+
+    particle.className = "particle";
+
+    const symbols = [
+        "♡",
+        "✦",
+        "·",
+        "♡"
+    ];
+
+    particle.textContent =
+        symbols[Math.floor(Math.random()*symbols.length)];
+
+    particle.style.left =
+        Math.random()*100 + "%";
+
+    particle.style.animationDuration =
+        (5 + Math.random()*5) + "s";
+
+    document
+        .getElementById("particles")
+        .appendChild(particle);
+
+    setTimeout(() => {
+        particle.remove();
+    },10000);
+
+}
+
+setInterval(createParticle,700);
+
+
+/* =========================
+   CORAZONES FINALES
+========================= */
+
+function finalHearts(){
+
+    for(let i=0;i<40;i++){
+
+        setTimeout(() => {
+
+            const heart =
+                document.createElement("span");
+
+            heart.className = "final-heart";
+
+            heart.textContent =
+                Math.random() > .5 ? "♥" : "🌻";
+
+            heart.style.left =
+                Math.random()*100 + "%";
+
+            document.body.appendChild(heart);
+
+            setTimeout(() => {
+                heart.remove();
+            },5000);
+
+        },i*100);
+
+    }
+
+}
+
+</script>
+
+</body>
+</html>
